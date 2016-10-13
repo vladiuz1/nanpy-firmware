@@ -88,6 +88,10 @@
 #  define USE_TLC5947 0
 #endif
 
+#ifndef BOARD_ID
+#  define BOARD_ID ""
+#endif
+
 #ifndef USE_MCP41xxx
 #  define USE_MCP41xxx 0
 #endif

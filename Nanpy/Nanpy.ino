@@ -64,7 +64,7 @@
 #include "EEPROMClass.h"
 #include "RAMClass.h"
 #include "DHTClass.h"
-
+#include "HCSR04Class.h"
 #include "DefineClass.h"
 #include "ArduinoCoreClass.h"
 #include "WatchdogClass.h"
@@ -104,6 +104,7 @@ void setup() {
     REGISTER_CLASS_CONDITIONAL(CounterClass, USE_Counter);                          // 
     REGISTER_CLASS_CONDITIONAL(InfoClass, USE_Info);                          // 
     REGISTER_CLASS_CONDITIONAL(DHTClass, USE_DHT);
+    REGISTER_CLASS_CONDITIONAL(HCSR04Class, USE_HCSR04);
     REGISTER_CLASS_CONDITIONAL(WireClass, USE_Wire);
     
     REGISTER_CLASS_CONDITIONAL(TLC5947Class, USE_TLC5947);

@@ -1,6 +1,5 @@
 #pragma once
 
-
 // only for ESP8266
 #define USE_WIFI_CONNECTION                         0
 
@@ -63,6 +62,10 @@
 
 // https://github.com/adafruit/DHT-sensor-library
 #define USE_DHT                                     0
+
+// based on this: https://github.com/JRodrigoTech/Ultrasonic-HC-SR04
+// i modified it a bit to work for me.
+#define USE_HCSR04                                  0
 
 // https://bitbucket.org/fmalpartida/new-liquidcrystal
 #define USE_LiquidCrystal_I2C                       0
