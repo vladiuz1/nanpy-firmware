@@ -1,0 +1,19 @@
+# Board id hardcoded to identify multiple arduino boards. (uncomment here or you can change it in cfg.h)
+# BOARD_ID = left_robot_arm
+
+# Board tag, according to list in.
+BOARD_TAG = mega2560
+
+# Port to upload to.
+ARDUINO_PORT = /dev/ttyACM0
+
+ARDUINO_LIBS =
+
+# Directory where arduino installed.
+# you will find Arduino.mk, revisions.txt, lib/, tools/ etc there.
+ARDUINO_DIR = /usr/share/arduino
+
+
+######################################
+CPPFLAGS += -DBOARD_ID='"${BOARD_ID}"'
+include ../Arduino.mk
