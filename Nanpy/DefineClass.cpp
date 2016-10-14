@@ -55,8 +55,8 @@ const int32_t value_table[] MY_PROGMEM =
 
 #define COUNT_INT_DEFS  sizeof(name_table)/sizeof(name_table[0])
 
-#define COUNT_STR_DEFS  4
-// __TIME__, __DATE__, __VERSION__, MCU
+#define COUNT_STR_DEFS  5
+// __TIME__, __DATE__, __VERSION__, MCU, BOARD_ID
 
 const char* nanpy::DefineClass::get_firmware_id()
 {
@@ -86,6 +86,9 @@ void nanpy::DefineClass::elaborate(nanpy::MethodDescriptor* m)
         case COUNT_INT_DEFS + 3:
             m->returns("MCU");
             break;
+        case COUNT_INT_DEFS + 4:
+            m->returns("BOARD_ID");
+            break;
 
         default:
             char buffer[LONGEST_STRING_IN_INTDEFS_H+1];
@@ -97,6 +100,7 @@ void nanpy::DefineClass::elaborate(nanpy::MethodDescriptor* m)
             m->returns(buffer);
         }
     }
+
     if (strcmp(m->getName(), "v") == 0) // value
     {
         int index = m->getInt(0);
@@ -113,6 +117,9 @@ void nanpy::DefineClass::elaborate(nanpy::MethodDescriptor* m)
             break;
         case COUNT_INT_DEFS + 3:
             m->returns(MCU);
+            break;
+        case COUNT_INT_DEFS + 4:
+            m->returns(BOARD_ID);
             break;
 
         default:
