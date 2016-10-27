@@ -24,17 +24,19 @@ Copy Nanpy directory under your "sketchbook" directory, start your Arduino IDE, 
 	
 2. Edit the new Makefile to configure the board you want to connect to.
 
-		$ cd Nanpy
-		$ vi Makefile
+		$ vi Nanpy/Makefile
 		
 3. Edit cfg.h file to select firmware you want to enable on the board.
 
-		$ vi cfg.h
+		$ vi Nanpy/cfg.h
 
 4. Build and upload the firmware:
 
+		$ cd Nanpy
 		$ make
 		$ make upload
+		
+Tip: For every board you connect to USB, make a copy of the Nanpy directory.
 
 ## License
 
