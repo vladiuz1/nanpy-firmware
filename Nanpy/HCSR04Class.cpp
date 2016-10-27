@@ -11,24 +11,25 @@ const char* nanpy::HCSR04Class::get_firmware_id()
     return "HCSR04";
 }
 
-void nanpy::HCSR04Class::elaborate( nanpy::MethodDescriptor* m ) {
-        if (strcmp(m->getName(), "begin") == 0) {
-            // sets the pins to correct mode
-            tp = m->getInt(0);
-            ep = m->getInt(1);
-            pinMode(tp, OUTPUT);
-            pinMode(ep, INPUT);
-            m->returns(0);
+void nanpy::HCSR04Class::elaborate( MethodDescriptor* m ) {
+        ObjectsManager<HCSR04>::elaborate(m);
+        if (strcmp(m->getName(),"new") == 0) {
+            HCSR04* pins;
+            pins = new HCSR04(m->getInt(0), m->getInt(1));
+            pinMode(pins->tp, OUTPUT);
+            pinMode(pins->ep, INPUT);
+            v.insert(pins);
+            m->returns(v.getLastIndex());
         }
         if (strcmp(m->getName(), "read") == 0) {
             // reads the delay between write and pulse, converts to distance in mm and returns value (int)
             int duration, mm;
-            digitalWrite(tp, LOW);
+            digitalWrite(v[m->getObjectId()]->tp, LOW);
             delayMicroseconds(2);
-            digitalWrite(tp, HIGH);
+            digitalWrite(v[m->getObjectId()]->tp, HIGH);
             delayMicroseconds(10);
-            digitalWrite(tp, LOW);
-            duration = pulseIn(ep, HIGH);
+            digitalWrite(v[m->getObjectId()]->tp, LOW);
+            duration = pulseIn(v[m->getObjectId()]->ep, HIGH);
             mm = int(duration / 5.8);
             m->returns(mm);
         }

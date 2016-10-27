@@ -1,5 +1,12 @@
 #pragma once
 
+// Use BOARD_ID to identify your arduino board. It is useful if connecting more than one arduino to usb.
+// Example:
+// BOARD_ID = "robot_arm"
+#ifndef
+#define BOARD_ID = ""
+#endif
+
 // only for ESP8266
 #define USE_WIFI_CONNECTION                         0
 
