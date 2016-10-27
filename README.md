@@ -15,6 +15,27 @@ You can use Nanpy/cfg.h generated file to configure your Nanpy firmware, selecti
 
 Copy Nanpy directory under your "sketchbook" directory, start your Arduino IDE, open Sketchbook/Nanpy, select "Upload".
 
+
+## How to build and install from command line
+
+1. From your firmware directory copy  sample_Makefile to Nanpy directory
+
+		$ cp sample_Makefile Nanpy Makefile
+	
+2. Edit the new Makefile to configure the board you want to connect to.
+
+		$ cd Nanpy
+		$ vi Makefile
+		
+3. Edit cfg.h file to select firmware you want to enable on the board.
+
+		$ vi cfg.h
+
+4. Build and upload the firmware:
+
+		$ make
+		$ make upload
+
 ## License
 
 This software is released under MIT License. Copyright (c) 2012-2015 Andrea Stagi <stagi.andrea@gmail.com>
