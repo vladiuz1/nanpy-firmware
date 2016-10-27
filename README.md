@@ -20,7 +20,7 @@ Copy Nanpy directory under your "sketchbook" directory, start your Arduino IDE, 
 
 1. From your firmware directory copy  sample_Makefile to Nanpy directory
 
-		$ cp sample_Makefile Nanpy Makefile
+		$ cp sample_Makefile Nanpy/Makefile
 	
 2. Edit the new Makefile to configure the board you want to connect to.
 
